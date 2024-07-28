@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Hello C3</title>
+  </head>
+  <body>
+    <canvas id='game'></canvas>
+    <script src="raylib.js"></script>
+    <script>
+      const raylibjs = new RaylibJs();
+      raylibjs.start({
+          wasmPath: 'demo.wasm',
+          canvasId: 'game',
+      });
+    </script>
+  </body>
+</html>
