@@ -17,7 +17,6 @@ extern fn bool window_should_close() @extern("WindowShouldClose");
 extern fn void begin_drawing() @extern("BeginDrawing");
 extern fn void clear_background(char[4] color) @extern("ClearBackground");
 extern fn void end_drawing() @extern("EndDrawing");
-// extern fn Color get_color(CUInt hexValue) @extern("GetColor");
 extern fn void draw_rectangle(int posX, int posY, int width, int height, Color color) @extern("DrawRectangle");
 extern fn float get_frame_time() @extern("GetFrameTime");
 extern fn void draw_rectangle_v(float[2] position, float[2] size, char[4] color) @extern("DrawRectangleV");
