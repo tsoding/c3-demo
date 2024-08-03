@@ -156,8 +156,7 @@ class RaylibJs {
     }
 
     ClearBackground(color_ptr) {
-        const style = getColorFromMemory(this.wasm.instance.exports.memory.buffer, color_ptr);
-        this.ctx.fillStyle = style;
+        this.ctx.fillStyle = getColorFromMemory(this.wasm.instance.exports.memory.buffer, color_ptr);
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     }
 
