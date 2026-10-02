@@ -1,7 +1,7 @@
 // ./c3c compile --reloc=none --target wasm32 -g0 --link-libc=no --use-stdlib=no --no-entry -o web web.c3
 import raylib;
 
-def Entry = fn void();
+alias Entry = fn void();
 
 extern fn void raylib_js_set_entry(Entry entry) @wasm;
 
@@ -56,7 +56,7 @@ fn void game_frame() @wasm
     raylib::end_drawing();
 }
 
-fn void main() @extern("main") @wasm
+fn void main() @wasm("main")
 {
     raylib::init_window(800, 600, "Hello, from C3 WebAssembly");
     raylib::set_target_fps(60);
@@ -65,7 +65,7 @@ fn void main() @extern("main") @wasm
         object.randomize();
     }
     
-    $if $feature(PLATFORM_WEB):
+    $if $feat(PLATFORM_WEB):
         raylib_js_set_entry(&game_frame);
     $else
         while (!raylib::window_should_close()) {
